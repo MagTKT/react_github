@@ -36,7 +36,7 @@ class User extends React.Component {
         }
 
         const user = this.state.user;
-        const repos= this.state.repos;
+        const repos = this.state.repos;
 
         return (
             <div className="user-page">
@@ -46,17 +46,20 @@ class User extends React.Component {
                         <h2 className="user-info__title">{user.login} ({user.name})</h2>
                         <p className="user-info__bio">{user.bio}</p>
                     </Link>
-
                 </div>
-                
+
+            
                 <div className="repos-page"> 
                     <h3> Projets de {user.name} </h3> 
-                    <Link className="user-info__text" to={`/repos/${repos.name}`}></Link>
-                    
+                    {repos.map(repo => 
+                        <Repos
+                        key={repo.id}
+                        repo={repo.name}
+                        />
+                    )} 
                 </div>
-                
             </div>
-        );
+        )
     }
 };
 
