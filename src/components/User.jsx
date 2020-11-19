@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router';
-import Repos from './Repos';
 
 class User extends React.Component {
     constructor() {
         super();
         this.state = {};
+        this.state = {repos: []};
     }
 
     componentDidMount() {
@@ -18,11 +18,19 @@ class User extends React.Component {
                 });
             }
         );
+        fetch(`https://api.github.com/users/${this.props.params.username}/repos`)
+        .then(response => response.json())
+        .then(
+            repos => {
+                this.setState({
+                    repos: repos
+                });
+            }
+        );
     }
 
 
     render() {
-< Repos/>
         if (!this.state.user) {
             return (<div className="user-page">LOADING...</div>);
         }
@@ -36,10 +44,18 @@ class User extends React.Component {
                         <img className="user-info__avatar" src={user.avatar_url} alt={`${user.login} avatar`}/>
                         <h2 className="user-info__title">{user.login} ({user.name})</h2>
                         <p className="user-info__bio">{user.bio}</p>
-                        
                     </Link>
                 </div>
-
+                
+                
+                <section>
+                {this.state.repos.map((repo) => (
+                    <a href={repo.html_url}>
+                        <li>{repo.name}</li>
+                    </a>
+                ))}
+                </section>
+                
             </div>
             
         )
