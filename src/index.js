@@ -9,7 +9,7 @@ import User from './components/User';
 
 const routes = (
     <Router history={browserHistory}>
-        <Route path="/" component={Search}/>
+        <Route path="/" component={Search} />
         <Route path="user/:username" component={User} /> 
     </Router>
 );

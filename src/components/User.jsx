@@ -29,10 +29,9 @@ class User extends React.Component {
         );
     }
 
-
     render() {
         if (!this.state.user) {
-            return (<div className="user-page">LOADING...</div>);
+            return (<div className="user-page"> Aucun nom d'utilisateur </div>);
         }
 
         const user = this.state.user;
@@ -43,21 +42,19 @@ class User extends React.Component {
                     <Link className="user-info__text" to={`/user/${user.login}`}>
                         <img className="user-info__avatar" src={user.avatar_url} alt={`${user.login} avatar`}/>
                         <h2 className="user-info__title">{user.login} ({user.name})</h2>
-                        <p className="user-info__bio">{user.bio}</p>
+                        <p className="user-info-t">{user.bio}</p>
+                        <p className="user-info-t">{user.location}</p>
+                        <p className="user-info-t">{user.compagny}</p>
                     </Link>
                 </div>
-                
-                
                 <section>
-                {this.state.repos.map((repo) => (
-                    <a href={repo.html_url}>
-                        <li>{repo.name}</li>
-                    </a>
-                ))}
+                    {this.state.repos.map((repo) => (
+                        <a href={repo.html_url}>
+                            <li>{repo.name}</li>
+                        </a>
+                    ))}
                 </section>
-                
             </div>
-            
         )
     }
 };

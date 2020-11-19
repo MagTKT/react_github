@@ -1,16 +1,16 @@
 body {
     font-family: Helvetica;
     margin: 0;
-    background-color: #222;
+    background-image: url("../public/test.jpg");
 }
 
 h1,h2,h3,h4,h5,h6 {
     margin-top: 0;
-    font-weight: 400;
+    font-weight: 600;
+    color: black;
 }
 
 .main-header {
-    
     color: #fff;
     overflow: hidden;
     padding: 0.5rem;
@@ -32,11 +32,11 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 
-
-
-
 .search-page {
     text-align: center;
+    margin-top: 230px;
+    background: #943f3fa3;
+    padding: 50px;
 }
 
 .search-page__input {
@@ -51,13 +51,33 @@ h1,h2,h3,h4,h5,h6 {
     font-size: 20px;
 }
 
-
-
-
-
 .user-info {
     display: flex;
     flex-wrap: wrap;
+    text-align: center;
+    margin-top: 230px;
+    background: #943f3fa3;
+    padding: 50px;
+}
+
+section{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+a{
+    text-decoration: none;
+    list-style:none; 
+
+}
+li{
+    text-decoration: none;
+    list-style: none;
+    background: #0c0c0cc7;
+    padding: 39px;
+    margin: 10px;
+    color: white;
 }
 
 .user-info__avatar {
@@ -77,32 +97,10 @@ h1,h2,h3,h4,h5,h6 {
     font-size: 20px;
 }
 
-.user-info__title, .user-info__bio {
+.user-info-t {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-}
-
-.user-info__stats {
-    list-style: none;
-    padding: 0;
-    flex: 1;
-    display: flex;
-}
-
-.user-info__stats a {
-    color: #000;
-    text-decoration: none;
-    text-transform: lowercase;
-    font-variant: small-caps;
-    text-align: center;
-}
-
-.user-info__stat {
-    flex: 1;
-}
-
-.user-info__stat p {
-    margin: 0;
-    white-space: nowrap;
+    color:black;
+    font-weight: 600;
 }
