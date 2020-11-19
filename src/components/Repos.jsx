@@ -3,7 +3,7 @@ import React from 'react';
 class Repos extends React.Component {
     constructor() {
         super();
-        this.state = {};
+        this.state = {repos: [],};
     }
 
     componentDidMount() {
@@ -18,14 +18,27 @@ class Repos extends React.Component {
         );
     }
     render() {
+        console.log(this.state.repos)
+        console.log('cou')
         if (!this.state.repos) {
             return (
                 <div className="repos-page"> 
-                    <h3> Projets de USERNAME </h3> 
+                    <h3>aucun repos a montrer</h3>
                 </div>
             );
         }
-    }
+
+        return (
+            <div className="repos-page">
+                <div className="repos-info">
+                    <h2 className="pages-info__name">
+                        {this.state.repos.login} 
+                        {this.state.repos.name}
+                    </h2>
+                </div>
+            </div>
+            
+        )}
 };
 
 export default Repos;

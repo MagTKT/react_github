@@ -38,11 +38,6 @@ class User extends React.Component {
                     </Link>
                 </div>
 
-            
-                <div className="repos-page"> 
-                    <h3> Projets de {user.name} </h3> 
-                    {this.props.children}
-                </div>
             </div>
         )
     }

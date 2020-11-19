@@ -15,7 +15,7 @@ const routes = (
             <IndexRoute component={Search}/>
             <Route path="user/:username" component={User} > 
                 <Route path="repos" component={Repos} />
-            </Route> 
+            </Route>
         </Route>
     </Router>
 );
