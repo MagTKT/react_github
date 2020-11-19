@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 
+
 class User extends React.Component {
     constructor() {
         super();
@@ -17,16 +18,6 @@ class User extends React.Component {
                 });
             }
         );
-        
-        fetch(`https://api.github.com/users/${this.props.params.username}/repos`)
-        .then(response => response.json())
-        .then(
-            repos => {
-                this.setState({
-                    repos: repos
-                });
-            }
-        );
     }
 
     render() {
@@ -36,7 +27,6 @@ class User extends React.Component {
         }
 
         const user = this.state.user;
-        const repos = this.state.repos;
 
         return (
             <div className="user-page">
@@ -51,12 +41,7 @@ class User extends React.Component {
             
                 <div className="repos-page"> 
                     <h3> Projets de {user.name} </h3> 
-                    {repos.map(repo => 
-                        <Repos
-                        key={repo.id}
-                        repo={repo.name}
-                        />
-                    )} 
+                    {this.props.children}
                 </div>
             </div>
         )
